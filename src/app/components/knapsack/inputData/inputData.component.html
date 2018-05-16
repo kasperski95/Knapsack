@@ -1,15 +1,21 @@
 <form>
-  <input name='knapsackSize' [(ngModel)]="data.knapsackSize" type='number' required />
+  <input name='knapsackSize' [(ngModel)]="knapsackSize" (ngModelChange)='update()' type='number' required />
   <table>
     <tr><th>Name</th><th>Weight</th><th>Value</th></tr>
-    <tr *ngFor="let item of data.getItems()"><td>{{item.name}}</td><td>{{item.weight}}</td><td>{{item.value}}</td></tr>
 
+    <!-- Display all items -->
+    <tr *ngFor="let item of knapsackService.items()"><td>{{item.name}}</td><td>{{item.weight}}</td><td>{{item.value}}</td></tr>
+
+    <!-- New item form -->
     <tr>
       <td><input name='name' [(ngModel)]="new_item.name" type='text' placeholder='Name' required/></td>
       <td><input name='weight' [(ngModel)]="new_item.weight" type='number' placeholder='Weight' required/></td>
       <td><input name='price' [(ngModel)]="new_item.value" type='number' placeholder='Value' required/></td>
     </tr>
+
     <tr><td colspan=3><button (click)='addItem()'>Add</button></td></tr>
   </table>
+
   <button (click)='clearAll()'>Clear all</button>
+
 </form>
