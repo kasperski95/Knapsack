@@ -1,21 +1,30 @@
-<form>
-  <input name='knapsackSize' [(ngModel)]="knapsackSize" (ngModelChange)='update()' type='number' required />
-  <table>
-    <tr><th>Name</th><th>Weight</th><th>Value</th></tr>
+<div class='knapsack-core'>
+  <div>
+    <span>knapsack size:</span>
+    <input name='knapsackSize' [(ngModel)]="knapsackSize" (ngModelChange)='update()' type='number' required />
+  </div>
 
-    <!-- Display all items -->
-    <tr *ngFor="let item of knapsackService.items()"><td>{{item.name}}</td><td>{{item.weight}}</td><td>{{item.value}}</td></tr>
+  <div class='row label'>
+    <div>Name</div>
+    <div>Weight</div>
+    <div>Value</div>
+    <div class='button'><button (click)='clearAll()'>Clear</button></div>
+  </div>
 
-    <!-- New item form -->
-    <tr>
-      <td><input name='name' [(ngModel)]="new_item.name" type='text' placeholder='Name' required/></td>
-      <td><input name='weight' [(ngModel)]="new_item.weight" type='number' placeholder='Weight' required/></td>
-      <td><input name='price' [(ngModel)]="new_item.value" type='number' placeholder='Value' required/></td>
-    </tr>
+  <!-- Display all items -->
+  <div  *ngFor="let item of knapsackService.items()"
+        class='row {{knapsackService.solution().indexOf(item) != -1 ? "item-packed" : ""}}' >
+    <div>{{item.name}}</div>
+    <div>{{item.weight}}</div>
+    <div>{{item.value}}</div>
+    <div class='button'><button>X</button></div>
+  </div>
 
-    <tr><td colspan=3><button (click)='addItem()'>Add</button></td></tr>
-  </table>
-
-  <button (click)='clearAll()'>Clear all</button>
-
-</form>
+  <!-- New item form -->
+  <div class='row'>
+    <div><input name='name' [(ngModel)]="new_item.name" type='text' placeholder='Name' required/></div>
+    <div><input name='weight' [(ngModel)]="new_item.weight" type='number' placeholder='Weight' required/></div>
+    <div><input name='price' [(ngModel)]="new_item.value" type='number' placeholder='Value' required/></div>
+    <div><button (click)='addItem()'>Add</button></div>
+  </div>
+</div>
