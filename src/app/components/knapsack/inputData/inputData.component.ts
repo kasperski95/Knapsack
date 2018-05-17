@@ -27,8 +27,7 @@ export class InputDataComponent implements OnInit {
 
   addItem() {
     this.knapsackService.push(this.new_item);
-    this.knapsackService.sort();
-    this.knapsackService.solve();
+    this.update();
   }
 
 
@@ -39,7 +38,19 @@ export class InputDataComponent implements OnInit {
 
   update() {
     this.knapsackService.setSize(this.knapsackSize);
+    this.knapsackService.sort()
     this.knapsackService.solve();
+  }
+
+
+  removeItem(item:KnapsackItem) {
+
+    let index = this.knapsackService.items().indexOf(item);
+    if (index > -1) {
+      this.knapsackService.items().splice(index, 1);
+      console.dir(this.knapsackService.items());
+    }
+    this.update();
   }
 
 }

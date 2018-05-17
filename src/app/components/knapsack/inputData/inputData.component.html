@@ -1,30 +1,30 @@
-<div class='knapsack-core'>
-  <div>
-    <span>knapsack size:</span>
-    <input name='knapsackSize' [(ngModel)]="knapsackSize" (ngModelChange)='update()' type='number' required />
+<div class='wrapper-knapsack'>
+  <div class='wrapper-knapsackLimit theme-row-default'>
+    <span>Limit:</span>
+    <input class='theme-interactable' name='knapsackSize' [(ngModel)]="knapsackSize" (ngModelChange)='update()' type='number' required />
   </div>
 
-  <div class='row label'>
-    <div>Name</div>
-    <div>Weight</div>
-    <div>Value</div>
-    <div class='button'><button (click)='clearAll()'>Clear</button></div>
+  <div class='row theme-row-label label'>
+    <div><div class='cell'>Name</div></div>
+    <div><div class='cell'>Weight</div></div>
+    <div><div class='cell'>Value</div></div>
+    <div><button id='clearAll' class='btn red' (click)='clearAll()'></button></div>
   </div>
 
   <!-- Display all items -->
   <div  *ngFor="let item of knapsackService.items()"
-        class='row {{knapsackService.solution().indexOf(item) != -1 ? "item-packed" : ""}}' >
-    <div>{{item.name}}</div>
-    <div>{{item.weight}}</div>
-    <div>{{item.value}}</div>
-    <div class='button'><button>X</button></div>
+        class='row {{knapsackService.solution().indexOf(item) != -1 ? "theme-row-itemIncluded" : "theme-row-default"}}' >
+    <div><div class='cell'>{{item.name}}</div></div>
+    <div><div class='cell'>{{item.weight}}</div></div>
+    <div><div class='cell'>{{item.value}}</div></div>
+    <div><button class='btn theme-interactable' (click)='removeItem(item)'></button></div>
   </div>
 
   <!-- New item form -->
   <div class='row'>
-    <div><input name='name' [(ngModel)]="new_item.name" type='text' placeholder='Name' required/></div>
-    <div><input name='weight' [(ngModel)]="new_item.weight" type='number' placeholder='Weight' required/></div>
-    <div><input name='price' [(ngModel)]="new_item.value" type='number' placeholder='Value' required/></div>
-    <div><button (click)='addItem()'>Add</button></div>
+    <div class='theme-interactable'><input name='name' [(ngModel)]="new_item.name" type='text' placeholder='name'/></div>
+    <div class='theme-interactable'><input name='weight' [(ngModel)]="new_item.weight" type='number' placeholder='weight'/></div>
+    <div class='theme-interactable'><input name='price' [(ngModel)]="new_item.value" type='number' placeholder='value'/></div>
+    <div class='theme-interactable'><button id='addItem' class='btn' (click)='addItem()'></button></div>
   </div>
 </div>

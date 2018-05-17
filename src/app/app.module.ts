@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ResultComponent } from './components/knapsack/result/result.component';
 import { InputDataComponent } from './components/knapsack/inputData/inputData.component';
+import { DescComponent } from './components/desc/desc.component';
 
 
 
@@ -12,7 +13,8 @@ import { InputDataComponent } from './components/knapsack/inputData/inputData.co
   declarations: [
     AppComponent,
     ResultComponent,
-    InputDataComponent
+    InputDataComponent,
+    DescComponent
   ],
   imports: [
     BrowserModule,

@@ -8,19 +8,20 @@ class KnapsackData {
 
   // inital data
   items:KnapsackItem[] = [
-    new KnapsackItem ('T-Shirt', 7, 75),
-    new KnapsackItem ('Trousers', 8, 150),
     new KnapsackItem ('Sweatshirt', 6, 250),
+    new KnapsackItem ('Trousers', 8, 150),
+    new KnapsackItem ('Shoes', 9, 100),
+    new KnapsackItem ('T-Shirt', 7, 75),
     new KnapsackItem ('Hat', 4, 35),
-    new KnapsackItem ('Scarf', 3, 10),
-    new KnapsackItem ('Shoes', 9, 100)
+    new KnapsackItem ('Scarf', 3, 10)
+
   ];
 
   // pre-calculated initial solution
   solution:KnapsackItem[] = [
-    this.items[1],
     this.items[0],
-    this.items[3]
+    this.items[1],
+    this.items[4]
   ];
 
 

@@ -1,51 +1,12 @@
 *{
   font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
 }
 
-
-.knapsack-core{
-  min-width: 15em;
-  max-width: 30em;
-  margin: 0em auto;
-  display: block;
-}
-
-.knapsack-core div:nth-child(1){
-  text-align: center;
-
-}
-
-.knapsack-core .row{
-  display: flex;
-}
-
-.knapsack-core .row div{
-  flex: 2;
-  text-align: right;
+html, body{
   background-color: #eee;
-  color: #333;
-  margin: 1px;
-  padding: 0.25em 0.5em;
-  transition: background-color 0.2s, color 0.2s;
 }
 
-.knapsack-core .row input{
-  display: block;
-  width: 100%;
-}
-
-.knapsack-core .row div:nth-child(1){
-  flex: 3;
-  text-align: left;
-}
-
-.knapsack-core .row div:last-of-type{
-  flex: 1;
-}
-
-.knapsack-core .label div{
-  background-color: #555;
-  color: white;
-  text-align: center !important;
-  font-weight: bold;
+h1{
+  margin-top: 0em;
 }
