@@ -5,7 +5,8 @@ import { KnapsackItem } from '../../../structures/knapsack/KnapsackItem';
 
 
 /**
-* Loading, removing and displaying input data
+* Loading, removing and displaying input data.
+* Displaying results by highlighing.
 */
 @Component({
   selector: 'app-inputData',
@@ -14,7 +15,7 @@ import { KnapsackItem } from '../../../structures/knapsack/KnapsackItem';
 })
 export class InputDataComponent implements OnInit {
   knapsackSize:number;
-  new_item:KnapsackItem = new KnapsackItem();
+  newItem:KnapsackItem = new KnapsackItem();
 
   //----------------------------------------------------------------------------
 
@@ -26,8 +27,11 @@ export class InputDataComponent implements OnInit {
   //----------------------------------------------------------------------------
 
   addItem() {
-    this.knapsackService.push(this.new_item);
-    this.update();
+    if (this._validate()) {
+      this.knapsackService.insert(this.newItem);
+      this.newItem.clear();
+      this.update();
+    }
   }
 
 
@@ -38,19 +42,25 @@ export class InputDataComponent implements OnInit {
 
   update() {
     this.knapsackService.setSize(this.knapsackSize);
-    this.knapsackService.sort()
     this.knapsackService.solve();
   }
 
 
   removeItem(item:KnapsackItem) {
-
-    let index = this.knapsackService.items().indexOf(item);
-    if (index > -1) {
-      this.knapsackService.items().splice(index, 1);
-      console.dir(this.knapsackService.items());
-    }
+    this.knapsackService.remove(item);
     this.update();
+  }
+
+
+  //----------------------------------------------------------------------------
+
+  _validate() {
+    return (
+      this.newItem.name != null &&
+      this.newItem.name.length > 0 &&
+      this.newItem.weight != 0 &&
+      this.newItem.value != 0
+    )
   }
 
 }

@@ -31,6 +31,12 @@ class KnapsackData {
     this.items.push(tmpItem);
   }
 
+  removeItem(item:KnapsackItem) {
+    let index = this.items.indexOf(item);
+    if (index > -1) {
+      this.items.splice(index, 1);
+    }
+  }
 
   sortByRatio() {
     this.items.sort((x,y) => {

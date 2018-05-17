@@ -104,7 +104,7 @@
 /* BUTTONS -------------------------------------------------------------------*/
 
 .btn{
-  background-image: url('/assets/img/icons/remove-red.png');
+  background-image: url('/assets/img/icons/remove-dark.png');
   background-size: 1em;
   background-repeat: no-repeat;
   background-position: center center;
@@ -118,11 +118,11 @@
 
 #addItem{
   background-color: #2E7EAE;
-  background-image: url('/assets/img/icons/add-white.png');
+  background-image: url('/assets/img/icons/add-bright.png');
 }
 
 #clearAll{
-  background-image: url('/assets/img/icons/remove-white.png');
+  background-image: url('/assets/img/icons/remove-bright.png');
   background-color: #AD2E2E;
 }
 

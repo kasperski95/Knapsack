@@ -23,6 +23,12 @@ export class KnapsackItem {
     this._updateRatio();
   };
 
+  clear() {
+    this.name = null;
+    this.weight = null;
+    this.value = null;
+    this._updateRatio();
+  }
 
   //----------------------------------------------------------------------------
 

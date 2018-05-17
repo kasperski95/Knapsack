@@ -48,15 +48,19 @@ export class KnapsackService implements Observatable {
   }
 
 
-  items() {
-    return knapsackData.items;
-  }
-
-
-  push(new_item : KnapsackItem) {
+  insert(new_item:KnapsackItem) {
     knapsackData.pushItemByValue(new_item);
   }
 
+
+  items() {
+    return knapsackData.items;
+  }
+  
+
+  remove(item:KnapsackItem) {
+    knapsackData.removeItem(item);
+  }
 
   setSize(newSize:number) {
     knapsackData.knapsackSize = newSize;
@@ -69,6 +73,7 @@ export class KnapsackService implements Observatable {
 
 
   solve() {
+    this.sort();
     knapsackData.solution = solveKnapsackProblem(this.items(), this.size());
     knapsackData.solution.sort(function(x,y) {
       if (x.weight < y.weight) return 1;
