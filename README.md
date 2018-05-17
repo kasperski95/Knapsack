@@ -6,18 +6,18 @@ http://knapsack.visperfect.com/
 
 ## Project structure
 In src/app:
-- components
-    Angular components
-- data
-    Keeps data
-- interfaces
-    Interfaces and design patterns
-- logic
-    Algorithms
-- services
-    Controllers
-- structures
-    Data structures
+- components:
+    angular components
+- data:
+    keeps data
+- interfaces:
+    interfaces and design patterns
+- logic:
+    algorithms
+- services:
+    controllers
+- structures:
+    data structures
 
 ---
 
